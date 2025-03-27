@@ -17,11 +17,6 @@ const nextConfig = {
     unoptimized: true,
   },
 
-  // Disable telemetry
-  telemetry: { 
-    disabled: true 
-  },
-
   // Experimental features (only keeping essential ones)
   experimental: {
     webpackBuildWorker: true,
