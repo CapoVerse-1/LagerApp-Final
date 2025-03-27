@@ -13,14 +13,28 @@ const nextConfig = {
 
   // Image optimization
   images: {
+    domains: ['tphecrdxwyswibwtggsa.supabase.co'],
     unoptimized: true,
   },
 
-  // Experimental features (keeping only essential ones)
+  // Disable telemetry
+  telemetry: { 
+    disabled: true 
+  },
+
+  // Experimental features (only keeping essential ones)
   experimental: {
     webpackBuildWorker: true,
-    parallelServerBuildTraces: true,
-    parallelServerCompiles: true,
+    // Removed potentially problematic experimental features
+  },
+  
+  // Increase build memory limit
+  webpack: (config) => {
+    config.watchOptions = {
+      poll: 1000,
+      aggregateTimeout: 300,
+    };
+    return config;
   },
 }
 
